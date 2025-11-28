@@ -1,12 +1,6 @@
 server:
   port: ${PORT:8080}
   #이거 덕분에 mustache 한글 됨.
-  servlet:
-    encoding:
-      force-response: true
-      charset: UTF-8
-      enabled: true
-  forward-headers-strategy: native
 #
 #jwt:
 #  access_token_expiration_time: 900 #15분초
@@ -19,16 +13,6 @@ spring:
 #    redis:
 #      host: localhost # 로컬에서 테스트 할 때는 localhost로 사용 redis
 #      port: 6379
-
-  mvc:
-    static-path-pattern: "/**" #모든 정적 자원 서빙 가능
-    view:
-      encoding: UTF-8
-  http:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
   jpa:
     open-in-view: true
     hibernate:
@@ -39,14 +23,38 @@ spring:
     show-sql: true
     properties:
       hibernate.format_sql: true
-      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      dialect: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+
+  mvc:
+    static-path-pattern: "/**" #모든 정적 자원 서빙 가능
+    view:
+      encoding: UTF-8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+#      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
   #MySql
   # PORT 수정. 3306
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/testschema?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
-    username: root
-    password: root1234
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/testschema?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+#    username: root
+#    password: root1234
 
 #chatbot:
 #  api:
@@ -65,15 +73,6 @@ spring:
 #    host: http://127.0.0.1:8003
 
 # h2 세팅
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
-#  datasource:
-#    driver-class-name: org.h2.Driver
-#    url: jdbc:h2:mem:db;MODE=MYSQL
-#    username: sa
-#    password:
 
 
 

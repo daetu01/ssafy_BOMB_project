@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class menu {
+public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
