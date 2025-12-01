@@ -15,9 +15,9 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "name")
+    private String name ;
 
-    @Column(name = "content")
-    private String content ;
+    @Column(name = "calorie")
+    private int calorie ;
 }
