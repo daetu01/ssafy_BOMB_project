@@ -5,6 +5,7 @@ import com.ssafy.bomb.add.dto.AddDTO;
 import com.ssafy.bomb.add.service.AddService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,7 +17,10 @@ public class AddController {
     // CRUD
     private final AddService addService;
 
-    @PostMapping("create/")
+    @PostMapping(
+            value="create/",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public ResponseEntity<AddDTO.Get> postAdd (
             @ModelAttribute AddDTO.Post post,
             @RequestParam(required = false)MultipartFile imageFile
