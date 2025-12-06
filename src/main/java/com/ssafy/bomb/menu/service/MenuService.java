@@ -23,7 +23,6 @@ public class MenuService {
     public MenuDTO.Get save(MenuDTO.Post post) {
         Menu menu = Menu.builder()
                 .name(post.getName())
-                .calorie(post.getCalorie())
                 .build();
 
 
@@ -61,7 +60,7 @@ public class MenuService {
                 .orElseThrow(() -> new RuntimeException(("Menu not found")));
 
         menu.setName(put.getName());
-        menu.setCalorie(put.getCalorie());
+
 
         // 나중에 주석 해제하면 될 듯.
         //menu.setDescription(put.getDescription());

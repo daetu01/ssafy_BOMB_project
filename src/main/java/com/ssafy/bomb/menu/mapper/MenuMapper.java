@@ -11,7 +11,6 @@ public class MenuMapper {
     public static Menu PostToEntity(MenuDTO.Post post) {
         return Menu.builder()
                 .name(post.getName())
-                .calorie(post.getCalorie())
                 .build();
     }
 
@@ -19,7 +18,6 @@ public class MenuMapper {
         return MenuDTO.Get.builder()
                 .id(menu.getId())
                 .name(menu.getName())
-                .calorie(menu.getCalorie())
                 .build();
     }
 }
